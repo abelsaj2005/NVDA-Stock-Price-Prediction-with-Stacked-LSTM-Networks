@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
-columns = ['title', 'datetime', 'source', 'link', 'top_sentiment', 'sentiment_score']
+columns = ['title', 'datetime', 'source', 'link', 'sentiment_label', 'sentiment_score']
 df = pd.DataFrame(columns = columns)
 
 counter = 0
@@ -22,10 +22,10 @@ for page in range(1, 180):
         source = article.find('span', class_ = 'latest-news__source').text
         link = article.find('a', class_ = 'news-link').get('href')
 
-        top_sentiment = ''
+        sentiment_label = ''
         sentiment_score = 0
 
-        df = pd.concat([pd.DataFrame([[title, datetime, source, link, top_sentiment, sentiment_score]], columns=df.columns), df], ignore_index=True)
+        df = pd.concat([pd.DataFrame([[title, datetime, source, link, sentiment_label, sentiment_score]], columns=df.columns), df], ignore_index=True)
         counter += 1
 
     print(f"Page number {page} scraped.")    
