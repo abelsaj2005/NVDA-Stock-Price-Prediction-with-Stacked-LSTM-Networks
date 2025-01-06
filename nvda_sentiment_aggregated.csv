@@ -1,4 +1,4 @@
-datetime,sentiment_label,sentiment_score
+date,sentiment_label,sentiment_score
 2019-11-25,Neutral,0.999996542930603
 2019-11-26,Neutral,0.9950796127319336
 2019-11-27,Positive,0.9999997615814208
